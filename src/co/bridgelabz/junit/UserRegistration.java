@@ -85,6 +85,13 @@ public class UserRegistration {
         System.out.println(Pattern.matches("[A-Za-z+-_.@]{7}[0-9]+","Vam@5555")); //true.
         System.out.println(Pattern.matches("[A-Za-z+-_.@]{7}[0-9]+","Vamsi@55")); //true.
     }
+    //Method for validating password Rule4
+    public void validPasswordRule4() {
+        System.out.println("Password rule 4");
+        System.out.println(Pattern.matches("((?=.*[a-z])(?=.*d)(?=.*[@#$%])(?=.*[A-Z]).{6,16})","Vamsi@55"));  //ture follows format.
+        System.out.println(Pattern.matches("[A-Za-z0-9]{7}[@-_+!]","Vamsikri")); //false, more characters.
+        System.out.println(Pattern.matches("[A-Za-z0-9]{7}[@-_+!]","Vamsi@55")); //false, less char.
+    }
     public static void main(String[] args) {
         System.out.println("Welcome to JUnit Test Cases.");
         //Methods.
@@ -99,6 +106,7 @@ public class UserRegistration {
         userRegistration.validPasswordR1();
         userRegistration.validPasswordRule2();
         userRegistration.validPasswordRule3();
+        userRegistration.validPasswordRule4();
 
     }
 }
