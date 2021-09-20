@@ -1,5 +1,7 @@
 package co.bridgelabz.junit;
 
+import java.util.Scanner;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /*
@@ -26,12 +28,34 @@ public class UserRegistration {
         System.out.println(Pattern.matches("[A-Z]{1}[a-z]{3}+","krishna")); //false, has no cap and more characters.
 
     }
+    //Method for validating Emails
+    public void validEmail() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter email: ");
+        String name = sc.nextLine();
+        // Regular Expression to validate E-mail.
+        String regex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";;
+
+        //Creating a pattern object
+        Pattern pattern = Pattern.compile(regex);
+
+        //Creating Matcher object.
+        Matcher matcher = pattern.matcher(name);
+
+        //verifying give name is valid or not.
+        if (matcher.matches())
+            System.out.println("E-mail is valid.");
+        else
+            System.out.println("E-mail is Invalid.");
+    }
     public static void main(String[] args) {
         System.out.println("Welcome to JUnit Test Cases.");
         //Methods.
         UserRegistration userRegistration = new UserRegistration();
         userRegistration.validFirstName();
         userRegistration.validLastName();
+        userRegistration.validEmail();
+
 
     }
 }
