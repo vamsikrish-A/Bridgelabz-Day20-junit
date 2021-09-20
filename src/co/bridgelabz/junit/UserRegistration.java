@@ -65,11 +65,18 @@ public class UserRegistration {
 
 
     }
-    //Method for validating
+    //Method for validating password rule1
     public void validPasswordR1() {
         System.out.println(Pattern.matches("[A-Za-z0-9+-_.@]{8}","Vamsi@_A"));  //ture follows format.
         System.out.println(Pattern.matches("[A-Za-z0-9+-_.@]{8}","Vamsi@krish")); //false, more characters.
         System.out.println(Pattern.matches("[A-Za-z0-9+-_.@]{8}","Vamsi@5")); //false, less char.
+    }
+    //Method for validating password Rule2
+    public void validPasswordRule2() {
+        System.out.println("Password rule2");
+        System.out.println(Pattern.matches("[A-Z]+[a-z0-9+-_@]{7}","Vamsi@_A"));  //ture follows format.
+        System.out.println(Pattern.matches("[A-Z]+[a-z0-9+-_.@]{7}","Vamsi@_krish")); //false, more characters.
+        System.out.println(Pattern.matches("[A-Z]+[a-z0-9+-_.@]{7}","Vamsi@5")); //false, less char.
     }
     public static void main(String[] args) {
         System.out.println("Welcome to JUnit Test Cases.");
@@ -83,6 +90,7 @@ public class UserRegistration {
         userRegistration.validMobileNumber("919584651655"); //valid
         userRegistration.validMobileNumber("25996565468");  //invalid
         userRegistration.validPasswordR1();
+        userRegistration.validPasswordRule2();
 
     }
 }
