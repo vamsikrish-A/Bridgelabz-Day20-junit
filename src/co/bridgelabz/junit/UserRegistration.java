@@ -48,6 +48,23 @@ public class UserRegistration {
         else
             System.out.println("E-mail is Invalid.");
     }
+    //Method for validating mobile Number formatting
+    public void validMobileNumber(String str) {
+        //function to check mobile number is valid or not.
+        //(0/91): country code.
+        //(7-9): starting digits between 7,8,9.
+        //(0-9): last 9 digits.
+        Pattern pattern = Pattern.compile("(91)?[7-9][0-9]{9}");
+        Matcher matcher = pattern.matcher(str);
+
+        //returns a boolean value.
+        if (matcher.find() && matcher.group().equals(str))
+            System.out.println("Valid Number.");
+        else
+            System.out.println("Invalid Number.");
+
+
+    }
     public static void main(String[] args) {
         System.out.println("Welcome to JUnit Test Cases.");
         //Methods.
@@ -55,6 +72,10 @@ public class UserRegistration {
         userRegistration.validFirstName();
         userRegistration.validLastName();
         userRegistration.validEmail();
+        userRegistration.validMobileNumber("91 5996565468"); //invalid
+        userRegistration.validMobileNumber("0 9965654682");  //invalid
+        userRegistration.validMobileNumber("919584651655"); //valid
+        userRegistration.validMobileNumber("25996565468");  //invalid
 
 
     }
